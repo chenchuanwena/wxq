@@ -8,3 +8,25 @@
 2022-08-15 06:56:08,558 INFO Included extra file "/opt/docker/etc/supervisor.d/ssh.conf" during parsing
 2022-08-15 06:56:08,559 INFO Included extra file "/opt/docker/etc/supervisor.d/syslog.conf" during parsing
 2022-08-15 06:56:08,560 INFO Included extra file "/opt/docker/etc/supervisor.d/weixiaoqing-work.conf" during parsing
+2022-08-15 07:32:47,285 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2022-08-15 07:32:47,287 INFO daemonizing the supervisord process
+2022-08-15 07:32:47,294 INFO supervisord started with pid 690
+2022-08-15 07:32:48,297 INFO spawned: 'weixiaoqing-worker_00' with pid 691
+2022-08-15 07:32:48,298 INFO spawned: 'weixiaoqing-worker_01' with pid 692
+2022-08-15 07:32:48,300 INFO spawned: 'weixiaoqing-worker_02' with pid 693
+2022-08-15 07:32:48,306 INFO spawned: 'weixiaoqing-worker_03' with pid 694
+2022-08-15 07:32:49,310 INFO success: weixiaoqing-worker_00 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-08-15 07:32:49,311 INFO success: weixiaoqing-worker_01 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-08-15 07:32:49,311 INFO success: weixiaoqing-worker_02 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-08-15 07:32:49,312 INFO success: weixiaoqing-worker_03 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-08-15 07:35:18,117 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2022-08-15 07:35:18,121 INFO daemonizing the supervisord process
+2022-08-15 07:35:18,131 INFO supervisord started with pid 3229
+2022-08-15 07:35:19,133 INFO spawned: 'weixiaoqing-worker_00' with pid 4036
+2022-08-15 07:35:19,135 INFO spawned: 'weixiaoqing-worker_01' with pid 4037
+2022-08-15 07:35:19,137 INFO spawned: 'weixiaoqing-worker_02' with pid 4038
+2022-08-15 07:35:19,138 INFO spawned: 'weixiaoqing-worker_03' with pid 4039
+2022-08-15 07:35:20,141 INFO success: weixiaoqing-worker_00 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-08-15 07:35:20,141 INFO success: weixiaoqing-worker_01 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-08-15 07:35:20,141 INFO success: weixiaoqing-worker_02 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-08-15 07:35:20,142 INFO success: weixiaoqing-worker_03 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)

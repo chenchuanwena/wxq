@@ -1,18 +1,18 @@
 version: '3'
 services:
-  spread-tuitest:
+  spread-weixiaoqing:
     build:
       context: ./
       dockerfile: Dockerfile
     image: laravel
-    container_name: spread-tuitest
+    container_name: spread-weixiaoqing
     expose:
     - "80"
     environment:
     - APP_ENV=env
-    - VIRTUAL_HOST=wechat.my-music.cn
+    - VIRTUAL_HOST=wxq.my-music.cn
     - WEB_DOCUMENT_ROOT=/project/public
-    - LETSENCRYPT_HOST=wechat.my-music.cn
+    - LETSENCRYPT_HOST=wxq.my-music.cn
     volumes:
     - ./:/project
     network_mode: docker_network
