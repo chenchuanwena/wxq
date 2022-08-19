@@ -87,7 +87,8 @@ DB_PASSWORD=
 - [Laravel 项目开发规范](https://learnku.com/docs/laravel-specification/7.x)
 - [PHP PSR标准](https://www.php-fig.org/psr/)
 
-## 疑问&帮助
+## 疑问&
+- 最好要有个企业号,不然很多功能其实是不能用的
 - 如果你觉得项目不错，希望你可以给我的项目点个⭐️
 - 如需协助加我QQ：361755806
 - 腾讯云服务问题，可点击联系【 [殿堂级服务商](https://partner.cloud.tencent.com/invitation/2149759630592423e481692/100017935150) 】排忧解难
