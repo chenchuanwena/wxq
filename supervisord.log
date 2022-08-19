@@ -30,3 +30,23 @@
 2022-08-15 07:35:20,141 INFO success: weixiaoqing-worker_01 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
 2022-08-15 07:35:20,141 INFO success: weixiaoqing-worker_02 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
 2022-08-15 07:35:20,142 INFO success: weixiaoqing-worker_03 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-08-19 02:12:51,315 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2022-08-19 02:12:51,315 INFO Included extra file "/opt/docker/etc/supervisor.d/cron.conf" during parsing
+2022-08-19 02:12:51,315 INFO Included extra file "/opt/docker/etc/supervisor.d/dnsmasq.conf" during parsing
+2022-08-19 02:12:51,315 INFO Included extra file "/opt/docker/etc/supervisor.d/laravel.supervisor.conf" during parsing
+2022-08-19 02:12:51,315 INFO Included extra file "/opt/docker/etc/supervisor.d/nginx.conf" during parsing
+2022-08-19 02:12:51,315 INFO Included extra file "/opt/docker/etc/supervisor.d/php-fpm.conf" during parsing
+2022-08-19 02:12:51,315 INFO Included extra file "/opt/docker/etc/supervisor.d/postfix.conf" during parsing
+2022-08-19 02:12:51,315 INFO Included extra file "/opt/docker/etc/supervisor.d/ssh.conf" during parsing
+2022-08-19 02:12:51,315 INFO Included extra file "/opt/docker/etc/supervisor.d/syslog.conf" during parsing
+2022-08-19 02:12:51,315 INFO Included extra file "/opt/docker/etc/supervisor.d/weixiaoqing-work.conf" during parsing
+2022-08-19 02:13:53,869 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2022-08-19 02:13:53,869 INFO Included extra file "/opt/docker/etc/supervisor.d/cron.conf" during parsing
+2022-08-19 02:13:53,869 INFO Included extra file "/opt/docker/etc/supervisor.d/dnsmasq.conf" during parsing
+2022-08-19 02:13:53,869 INFO Included extra file "/opt/docker/etc/supervisor.d/laravel.supervisor.conf" during parsing
+2022-08-19 02:13:53,869 INFO Included extra file "/opt/docker/etc/supervisor.d/nginx.conf" during parsing
+2022-08-19 02:13:53,869 INFO Included extra file "/opt/docker/etc/supervisor.d/php-fpm.conf" during parsing
+2022-08-19 02:13:53,869 INFO Included extra file "/opt/docker/etc/supervisor.d/postfix.conf" during parsing
+2022-08-19 02:13:53,869 INFO Included extra file "/opt/docker/etc/supervisor.d/ssh.conf" during parsing
+2022-08-19 02:13:53,869 INFO Included extra file "/opt/docker/etc/supervisor.d/syslog.conf" during parsing
+2022-08-19 02:13:53,869 INFO Included extra file "/opt/docker/etc/supervisor.d/weixiaoqing-work.conf" during parsing
