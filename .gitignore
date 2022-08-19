@@ -12,3 +12,5 @@ yarn-error.log
 /.idea
 .DS_Store
 docker-compose.yml
+supervisord.pid
+supervisord.log
