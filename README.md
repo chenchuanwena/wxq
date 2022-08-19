@@ -71,6 +71,7 @@ DB_PASSWORD=
     - 启动supervisor服务:```supervisord -c /etc/supervisord.conf```
     - 启动supervisor服务配置:```supervisorctl start all```
 - 登录系统：host，帐号：root  密码：123456
+- 如果用容器安装的不能访问，重启一下容器就可以了
 
 ## 特别鸣谢
 - **[⭐️腾讯云服务商⭐️](https://partner.cloud.tencent.com/invitation/2149759630592423e481692/100017935150)**
