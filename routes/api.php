@@ -16,12 +16,18 @@ use Illuminate\Support\Facades\Route;
 
 //微信服务器接入
 Route::group(['namespace' => 'Api', 'prefix' => 'mp'], function () {
-    Route::any('/{api_token}', 'MpController@serveHandler')->name('api.mp.event.api');
-    Route::get('/token/{api_token}', 'MpController@accessTokenGet')->name('api.mp.token');
+  Route::any('/{api_token}', 'MpController@serveHandler')->name('api.mp.event.api');
+  Route::get('/token/{api_token}', 'MpController@accessTokenGet')->name('api.mp.token');
 });
 
 //企业微信服务接入
 Route::group(['namespace' => 'Api', 'prefix' => 'work'], function () {
-    Route::any('/{api_token}', 'WorkController@serveHandler')->name('api.work.event.api');
-    Route::get('/token/{api_token}', 'WorkController@accessTokenGet')->name('api.work.token');
+  Route::any('/{api_token}', 'WorkController@serveHandler')->name('api.work.event.api');
+  Route::get('/token/{api_token}', 'WorkController@accessTokenGet')->name('api.work.token');
+});
+
+//吉他网站接入
+Route::group(['namespace' => 'Api', 'prefix' => 'guitar'], function () {
+  Route::any('/{api_token}', 'GuitarController@getQrcode')->name('api.guitar.event.api');
+  Route::get('/token/{api_token}', 'GuitarController@getQrcode')->name('api.guitar.token');
 });
