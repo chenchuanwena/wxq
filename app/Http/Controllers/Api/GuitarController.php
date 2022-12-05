@@ -26,6 +26,7 @@ class GuitarController extends Controller
       $mp = Mp::where('api_token', $api_token)->first();
       $openid = $request->input('openid', '');
       $app = mp_app($mp->app_id, $mp->app_secret, $mp->valid_token, $mp->encodingaeskey);
+      echo $app->access_token;
       $app->server->push(function ($message) use ($openid, $app, $mp) {
         MpFan::where('mp_id', $mp->mp_id)->where('openid', $openid)->update(['last_time' => date('Y-m-d H:i:s', time())]);
         $msgClassName = 'App\\Http\\Msgs\\MpMsg\\' . Str::studly($message['MsgType']) . 'Msg';
