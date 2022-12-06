@@ -27,25 +27,7 @@ class GuitarController extends Controller
       $openid = $request->input('openid', '');
       $app = mp_app($mp->app_id, $mp->app_secret, $mp->valid_token, $mp->encodingaeskey);
       echo $app->access_token;
-      $app->server->push(function ($message) use ($openid, $app, $mp) {
-        MpFan::where('mp_id', $mp->mp_id)->where('openid', $openid)->update(['last_time' => date('Y-m-d H:i:s', time())]);
-        $msgClassName = 'App\\Http\\Msgs\\MpMsg\\' . Str::studly($message['MsgType']) . 'Msg';
-        Log::info('mp msg:' . json_encode($message, JSON_UNESCAPED_UNICODE));
-        if (class_exists($msgClassName)) {
-          $message['openid'] = $openid;
-          $msgMethod = new $msgClassName($app, $mp, $message);
-          if (method_exists($msgMethod, 'handler')) {
-            return $msgMethod->handler(); //默认方法
-          } else {
-            Log::error('mp msg function undefined');
-            return MpService::DEFAULT_RETURN;
-          }
-        } else {
-          Log::error('mp msg class undefined');
-          return MpService::DEFAULT_RETURN;
-        }
-      });
-      $response = $app->server->serve();
+      exit;
     } catch (\Exception $exception) {
       mark_error_log($exception);
       $response = $echoStr != '' ? $echoStr : MpService::DEFAULT_RETURN;
