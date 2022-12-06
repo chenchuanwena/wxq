@@ -26,7 +26,8 @@ class GuitarController extends Controller
       $mp = Mp::where('api_token', $api_token)->first();
       $openid = $request->input('openid', '');
       $app = mp_app($mp->app_id, $mp->app_secret, $mp->valid_token, $mp->encodingaeskey);
-      return $app->access_token->getToken();
+      // return $app->access_token->getToken();
+      return array('name' => 'ccw');
     } catch (\Exception $exception) {
       mark_error_log($exception);
       $response = $echoStr != '' ? $echoStr : MpService::DEFAULT_RETURN;
