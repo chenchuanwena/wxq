@@ -28,8 +28,7 @@ class GuitarController extends Controller
       $app = mp_app($mp->app_id, $mp->app_secret, $mp->valid_token, $mp->encodingaeskey);
       $access_token = $app->access_token->getToken();
       $access_token['access_token'];
-
-      return config('defaults');
+      return config('wechat.defaults');
     } catch (\Exception $exception) {
       mark_error_log($exception);
       $response = $echoStr != '' ? $echoStr : MpService::DEFAULT_RETURN;
