@@ -56,16 +56,12 @@ if (!function_exists('get_qrcode')) {
   function get_qrcode(string $app_id = '', string $secret = '', string $token = '', string $aes_key = '')
   {
     try {
-      $app = \EasyWeChat\Factory::basicService([
-        'app_id' => $app_id, 'secret' => $secret, 'token' => $token, 'aes_key' => $aes_key, 'log' => [
-          'level' => env('WECHAT_LOG_LEVEL', 'debug'),
-          'file' => env('WECHAT_LOG_FILE', storage_path('logs/easywechat_mp_' . date('Ym') . '.log'))
-        ]
-      ]);
+      $app = mp_app($app_id, $secret);
       $gen = \Faker\Factory::create();
       // $scene_id = $gen->unique()->regexify('[0-9]{32}');
       $scene_str = $gen->unique()->regexify('[A-Za-z0-9]{' . mt_rand(1, 32) . '}');
-      return  $app->qrcode->temporary($scene_str, 864000);;
+      $result = $app->qrcode->temporary($scene_str, 86400);
+      return  $result;
     } catch (\Psr\SimpleCache\InvalidArgumentException $exception) {
       \Illuminate\Support\Facades\Log::error('work app_id:' . $app_id . ' get access_token fail');
       return null;

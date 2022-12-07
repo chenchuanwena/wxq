@@ -24,7 +24,7 @@ class GuitarController extends Controller
     $echoStr = $request->input('echostr', '');  //服务器对接
     try {
       $mp = Mp::where('api_token', $api_token)->first();
-      $app = get_qrcode($mp->app_id, $mp->app_secret, $mp->valid_token, $mp->encodingaeskey);
+      $app = get_qrcode($mp->app_id, $mp->app_secret);
       return $app;
     } catch (\Exception $exception) {
       mark_error_log($exception);
