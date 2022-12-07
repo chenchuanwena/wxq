@@ -29,5 +29,5 @@ Route::group(['namespace' => 'Api', 'prefix' => 'work'], function () {
 //吉他网站接入
 Route::group(['namespace' => 'Api', 'prefix' => 'guitar'], function () {
   Route::any('/{api_token}', 'GuitarController@getQrcode')->name('api.guitar.event.api');
-  Route::get('/token/{api_token}', 'GuitarController@getQrcode')->name('api.guitar.token');
+  Route::get('/token/{api_token}', 'GuitarController@accessTokenGet')->name('api.guitar.token');
 });
