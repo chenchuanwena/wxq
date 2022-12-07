@@ -24,11 +24,8 @@ class GuitarController extends Controller
     $echoStr = $request->input('echostr', '');  //服务器对接
     try {
       $mp = Mp::where('api_token', $api_token)->first();
-      $openid = $request->input('openid', '');
-      $app = mp_app($mp->app_id, $mp->app_secret, $mp->valid_token, $mp->encodingaeskey);
-      $access_token = $app->access_token->getToken();
-      $access_token['access_token'];
-      return config('wechat.defaults');
+      $app = get_qrcode($mp->app_id, $mp->app_secret, $mp->valid_token, $mp->encodingaeskey);
+      return $app;
     } catch (\Exception $exception) {
       mark_error_log($exception);
       $response = $echoStr != '' ? $echoStr : MpService::DEFAULT_RETURN;
