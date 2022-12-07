@@ -61,6 +61,7 @@ if (!function_exists('get_qrcode')) {
       // $scene_id = $gen->unique()->regexify('[0-9]{32}');
       $scene_str = $gen->unique()->regexify('[A-Za-z0-9]{' . mt_rand(1, 32) . '}');
       $result = $app->qrcode->temporary($scene_str, 86400);
+      $result['scene_str'] = $scene_str;
       return  $result;
     } catch (\Psr\SimpleCache\InvalidArgumentException $exception) {
       \Illuminate\Support\Facades\Log::error('work app_id:' . $app_id . ' get access_token fail');
