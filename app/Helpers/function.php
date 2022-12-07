@@ -62,10 +62,10 @@ if (!function_exists('get_qrcode')) {
           'file' => env('WECHAT_LOG_FILE', storage_path('logs/easywechat_mp_' . date('Ym') . '.log'))
         ]
       ]);
-      return $app->access_token->getToken();;
       $gen = \Faker\Factory::create();
       // $scene_id = $gen->unique()->regexify('[0-9]{32}');
       $scene_str = $gen->unique()->regexify('[A-Za-z0-9]{' . mt_rand(1, 32) . '}');
+      return $scene_str;
       return  $app->qrcode->temporary($scene_str, 864000);;
     } catch (\Psr\SimpleCache\InvalidArgumentException $exception) {
       \Illuminate\Support\Facades\Log::error('work app_id:' . $app_id . ' get access_token fail');
