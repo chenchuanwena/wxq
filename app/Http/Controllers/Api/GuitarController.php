@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Str;
+use PHPUnit\Util\Filter;
 
 class GuitarController extends Controller
 {
@@ -19,9 +20,10 @@ class GuitarController extends Controller
    * @param Request $request
    * @return string|\Symfony\Component\HttpFoundation\Response
    */
-  public function getQrcode(string $api_token, Request $request)
+  public function getQrcode(string $sessStr, Request $request)
   {
     $echoStr = $request->input('echostr', '');  //服务器对接
+    $api_token = config('self.api_token');
     try {
       $mp = Mp::where('api_token', $api_token)->first();
       $app = get_qrcode($mp->app_id, $mp->app_secret);
