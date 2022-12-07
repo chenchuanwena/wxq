@@ -23,7 +23,7 @@ class GuitarController extends Controller
   public function getQrcode(string $sessStr, Request $request)
   {
     $echoStr = $request->input('echostr', '');  //服务器对接
-    $api_token = config('self.api_token');
+    $api_token = config('wechat.self.api_token');
     try {
       $mp = Mp::where('api_token', $api_token)->first();
       $app = get_qrcode($mp->app_id, $mp->app_secret);
