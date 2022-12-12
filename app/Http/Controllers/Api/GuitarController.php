@@ -26,7 +26,7 @@ class GuitarController extends Controller
     $api_token = config('wechat.self.api_token');
     try {
       $mp = Mp::where('api_token', $api_token)->first();
-      $app = get_qrcode($mp->app_id, $mp->app_secret);
+      $app = get_qrcode($mp->app_id, $mp->app_secret, $sessStr);
       return $app;
     } catch (\Exception $exception) {
       mark_error_log($exception);
