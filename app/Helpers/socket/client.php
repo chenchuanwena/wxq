@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Helpers\socket;
+
+use Illuminate\Support\Facades\Log;
 // error_reporting(E_ALL);
 // ini_set('display_errors', 'on');
 require __DIR__ . '/websocket_client.php';
-
+error_reporting(0);
 class client
 {
   private $socketHost = null;
@@ -25,13 +27,21 @@ class client
 
     $host = $this->socketHost;
     $prot = $this->socketPort;
-    $redis = new Redis();
+    $config = array(
+      'redisHost' => $this->redisHost,
+      'redisPort' => $this->redisPort,
+      'socketHost' => $this->socketHost,
+      'socketPort' => $this->socketPort,
+
+    );
+    Log::info('socket config is:' . json_encode($config, JSON_UNESCAPED_UNICODE));
+    $redis = new \Redis();
     $redis->connect($this->redisHost, $this->redisPort);
 
     $res = $redis->hmget($uidkey, array('token', 'fd'));
 
 
-    $client = new WebSocketClient($host, $prot);
+    $client = new \WebSocketClient($host, $prot);
     $data = $client->connect();
 
     $sendData = array(

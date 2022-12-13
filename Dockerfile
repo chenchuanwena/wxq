@@ -1,8 +1,8 @@
 FROM webdevops/php-nginx:7.2
 
 ENV COMPOSER_ALLOW_SUPERUSER=1 \
-    PATH=/usr/local/node/bin:$PATH \
-    WEB_DOCUMENT_ROOT="/project"
+  PATH=/usr/local/node/bin:$PATH \
+  WEB_DOCUMENT_ROOT="/project"
 
 RUN mkdir -p $WEB_DOCUMENT_ROOT \
   && export COMPOSER_ALLOW_SUPERUSER=1 \
@@ -23,8 +23,11 @@ RUN mkdir -p $WEB_DOCUMENT_ROOT \
   && rm -rf * \
   && echo "* * * * * root test -f $WEB_DOCUMENT_ROOT/crontab.sh && cd $WEB_DOCUMENT_ROOT && sh ./crontab.sh >> /dev/null 2>&1" >> /etc/crontab \
   && echo "include $WEB_DOCUMENT_ROOT/*.nginx.conf;" >> /opt/docker/etc/nginx/vhost.common.d/10-project.conf \
-  && ln -s $WEB_DOCUMENT_ROOT/laravel.supervisor.conf /opt/docker/etc/supervisor.d/laravel.supervisor.conf
-  
+  && ln -s $WEB_DOCUMENT_ROOT/laravel.supervisor.conf /opt/docker/etc/supervisor.d/laravel.supervisor.conf \
+  && pecl install http://pecl.php.net/get/swoole-4.4.17.tgz \
+  && echo "[swoole]" >> /opt/docker/etc/php/php.ini \
+  && echo "extension=swoole.so" >> /opt/docker/etc/php/php.ini
+
 
 WORKDIR $WEB_DOCUMENT_ROOT
 

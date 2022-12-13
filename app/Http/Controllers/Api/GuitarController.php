@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Str;
 use PHPUnit\Util\Filter;
+use App\Helpers\socket\client;
 
 
 class GuitarController extends Controller
@@ -23,6 +24,15 @@ class GuitarController extends Controller
    */
   public function getQrcode(string $sessStr, Request $request)
   {
+    $client = new client();
+    $sendData = array(
+      'EventKey' => '7ba09855715563c371343c3ecda8b42f',
+      'openid' => 'ofM9B55Nza1FgkZNIabJe26p5ytY',
+    );
+
+    Log::info('mp msg fan:' . json_encode($sendData, JSON_UNESCAPED_UNICODE));
+    $client->pushToClient('uid_' . $sendData['EventKey'], 'loginsuc', $sendData);
+    return '成功';
     $echoStr = $request->input('echostr', '');  //服务器对接
     $api_token = config('wechat.self.api_token');
     try {

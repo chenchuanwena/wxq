@@ -57,7 +57,7 @@ class WebSocketClient
    */
   public function connect()
   {
-    $this->socket = new Swoole\Client(SWOOLE_SOCK_TCP);
+    $this->socket = new \Swoole\Client(SWOOLE_SOCK_TCP);
     if (!$this->socket->connect($this->host, $this->port)) {
       return false;
     }
@@ -76,14 +76,16 @@ class WebSocketClient
   public function disconnect()
   {
     $this->connected = false;
-    $this->socket->close();
+    if (!empty($this->socket)) {
+      $this->socket->close();
+    }
   }
 
   public function recv()
   {
     $data = $this->socket->recv();
     if ($data === false) {
-     // echo "Error: {$this->socket->errMsg}";
+      // echo "Error: {$this->socket->errMsg}";
       return false;
     }
     $this->buffer .= $data;
