@@ -1,0 +1,39 @@
+<script src="/Public/static/jquery-2.0.3.min.js"></script>
+<script src="/Public/static/jquery.cookie.js"></script>
+<script>
+    var cookie = $.cookie('PHPSESSID');
+    var wsServer = 'ws://127.0.0.1:9501?token=' + cookie;
+    // var wsServer = 'ws://www.my-music.com/socket';
+    //var websocket = new WebSocket(wsServer, cookie);
+    var websocket = new WebSocket(wsServer);
+    websocket.onopen = function(evt) {
+        var phpSessionCookie = $.cookie('PHPSESSID');
+        console.log('PHPSESSID cookie is' + $.cookie('PHPSESSID'));
+        console.log('settle cookie is' + $.cookie('fdKey'));
+        console.log("Connected to WebSocket server.");
+    };
+
+    websocket.onclose = function(evt) {
+        console.log("Disconnected");
+    };
+
+    websocket.onmessage = function(evt) {
+        if (typeof(evt.data) == 'string') {
+            dataObj = eval('(' + evt.data + ')');
+        } else {
+            dataObj = evt.data;
+        }
+        console.log(dataObj)
+        if (dataObj.data.type == 'from') {
+            //console.log(dataObj)
+        } else {
+            $.cookie('fdKey', dataObj.data.fd);
+        }
+
+
+    };
+
+    websocket.onerror = function(evt, e) {
+        console.log('Error occured: ' + evt.data);
+    };
+</script>

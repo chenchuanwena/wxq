@@ -10,6 +10,7 @@ use EasyWeChat\Kernel\Messages\News;
 use EasyWeChat\Kernel\Messages\Text;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
+use App\Helpers\socket\client;
 
 class EventMsg extends MpBaseMsg
 {
@@ -105,7 +106,13 @@ class EventMsg extends MpBaseMsg
         $scanType = MpFan::SCAN_UNDEFINED;
         $fan = MpFan::firstOrCreate(['openid' => $openId, 'mp_id' => $this->mp->mp_id]);
       }
-      Log::info('mp msg fan:' . json_encode($fan, JSON_UNESCAPED_UNICODE));
+      if ($event == 'subscribe' || $event == 'SCAN') {
+        $client = new client();
+        $sendData = array_merge($message, $fan);
+        Log::info('mp msg fan:' . json_encode($sendData, JSON_UNESCAPED_UNICODE));
+        $client->pushToClient('uid_' . $message['EventKey'], 'loginsuc', $sendData);
+      }
+
       if (Str::contains($sceneStr, 'MP_')) {
         if (Str::contains($sceneStr, 'MP_CC')) {
           $return = $mpService->channelCode($fan, $sceneStr, $scanType, $event);
