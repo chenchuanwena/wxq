@@ -24,15 +24,7 @@ class GuitarController extends Controller
    */
   public function getQrcode(string $sessStr, Request $request)
   {
-    $client = new client();
-    $sendData = array(
-      'EventKey' => '7ba09855715563c371343c3ecda8b42f',
-      'openid' => 'ofM9B55Nza1FgkZNIabJe26p5ytY',
-    );
 
-    Log::info('mp msg fan:' . json_encode($sendData, JSON_UNESCAPED_UNICODE));
-    $client->pushToClient('uid_' . $sendData['EventKey'], 'loginsuc', $sendData);
-    return '成功';
     $echoStr = $request->input('echostr', '');  //服务器对接
     $api_token = config('wechat.self.api_token');
     try {
@@ -44,6 +36,20 @@ class GuitarController extends Controller
       $response = $echoStr != '' ? $echoStr : MpService::DEFAULT_RETURN;
     }
     return $response;
+  }
+
+
+  public function testPush()
+  {
+    $client = new client();
+    $sendData = array(
+      'EventKey' => '7ba09855715563c371343c3ecda8b42f',
+      'openid' => 'ofM9B55Nza1FgkZNIabJe26p5ytY',
+    );
+
+    Log::info('mp msg fan:' . json_encode($sendData, JSON_UNESCAPED_UNICODE));
+    $client->pushToClient('uid_' . $sendData['EventKey'], 'loginsuc', $sendData);
+    return '成功';
   }
 
   /**
