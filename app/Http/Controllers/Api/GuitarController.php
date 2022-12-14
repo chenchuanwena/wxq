@@ -43,12 +43,12 @@ class GuitarController extends Controller
   {
     $client = new client();
     $sendData = array(
-      'EventKey' => '7ba09855715563c371343c3ecda8b42f',
+      'EventKey' => '515e949934222548f398c0d88e2b9c40',
       'openid' => 'ofM9B55Nza1FgkZNIabJe26p5ytY',
     );
 
     Log::info('mp msg fan:' . json_encode($sendData, JSON_UNESCAPED_UNICODE));
-    $client->pushToClient('uid_' . $sendData['EventKey'], 'loginsuc', $sendData);
+    $client->pushToClient('uid_' . $sendData['EventKey'], 'loginsuc', '登录成功', $sendData);
     return '成功';
   }
 

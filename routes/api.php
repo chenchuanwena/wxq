@@ -30,4 +30,6 @@ Route::group(['namespace' => 'Api', 'prefix' => 'work'], function () {
 Route::group(['namespace' => 'Api', 'prefix' => 'guitar'], function () {
   Route::any('/{api_token}', 'GuitarController@getQrcode')->name('api.guitar.event.api');
   Route::get('/token/{api_token}', 'GuitarController@accessTokenGet')->name('api.guitar.token');
+  //测试推送
+  Route::any('/test/push', 'GuitarController@testPush')->name('api.guitar.event.api.testPush');
 });

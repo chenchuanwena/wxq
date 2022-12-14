@@ -110,7 +110,7 @@ class EventMsg extends MpBaseMsg
         $client = new client();
         $sendData = array_merge($message, $fan);
         Log::info('mp msg fan:' . json_encode($sendData, JSON_UNESCAPED_UNICODE));
-        $client->pushToClient('uid_' . $message['EventKey'], 'loginsuc', $sendData);
+        $client->pushToClient('uid_' . $message['EventKey'], 'loginsuc', '登录成功', $sendData);
       }
 
       if (Str::contains($sceneStr, 'MP_')) {

@@ -20,7 +20,7 @@ class client
     $this->socketPort = env('GUITAR_SOCKET_PORT');
     $this->redisPort = env('GUITAR_REDIS_PORT');
   }
-  public function pushToClient($uidkey, $type, $message)
+  public function pushToClient($uidkey, $type, $message, $data = [])
   {
 
 
@@ -42,11 +42,12 @@ class client
 
 
     $client = new \WebSocketClient($host, $prot);
-    $data = $client->connect();
+    $connetData = $client->connect();
 
     $sendData = array(
       'toFd' => $res['fd'],
       'message' => $message,
+      'data' => $data,
       'type' => $type,
       'status' => 'success',
     );
