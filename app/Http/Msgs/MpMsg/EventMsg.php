@@ -108,9 +108,10 @@ class EventMsg extends MpBaseMsg
       }
       if ($event == 'subscribe' || $event == 'SCAN') {
         $client = new client();
-        $sendData = array_merge($message, $fan);
+        // $sendData = array_merge($message, $fan);
+        $message['openid'] = $message['FromUserName'];
         Log::info('mp msg fan:' . json_encode($message, JSON_UNESCAPED_UNICODE));
-        $client->pushToClient('uid_' . $message['EventKey'], 'loginsuc', '登录成功', $sendData);
+        $client->pushToClient('uid_' . $message['EventKey'], 'loginsuc', '登录成功', $$message);
       }
 
       if (Str::contains($sceneStr, 'MP_')) {
