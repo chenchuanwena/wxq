@@ -111,7 +111,7 @@ class EventMsg extends MpBaseMsg
         // $sendData = array_merge($message, $fan);
         $message['openid'] = $message['FromUserName'];
         Log::info('mp msg fan:' . json_encode($message, JSON_UNESCAPED_UNICODE));
-        $client->pushToClient('uid_' . $message['EventKey'], 'loginsuc', '登录成功', $$message);
+        $client->pushToClient('uid_' . $message['EventKey'], 'loginsuc', '登录成功', $message);
       }
 
       if (Str::contains($sceneStr, 'MP_')) {
