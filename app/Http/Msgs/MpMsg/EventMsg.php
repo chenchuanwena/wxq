@@ -109,7 +109,7 @@ class EventMsg extends MpBaseMsg
       if ($event == 'subscribe' || $event == 'SCAN') {
         $client = new client();
         $sendData = array_merge($message, $fan);
-        Log::info('mp msg fan:' . json_encode($sendData, JSON_UNESCAPED_UNICODE));
+        Log::info('mp msg fan:' . json_encode($message, JSON_UNESCAPED_UNICODE));
         $client->pushToClient('uid_' . $message['EventKey'], 'loginsuc', '登录成功', $sendData);
       }
 
