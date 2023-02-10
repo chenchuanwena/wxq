@@ -156,7 +156,7 @@
                     @endif
                 </div>
                 <div>
-                    @if(isset($data->title) && count($data->title) == 8)
+                    @if(isset($data->title))
                         <button type="button" lay-submit lay-filter="addNews" style="display: none"
                                 class="layui-btn layui-btn-normal layui-btn-fluid" id="add-news-btn">增加图文
                         </button>
@@ -167,7 +167,7 @@
                     @endif
                 </div>
                 <div style="margin-top: 10px;">
-                    @if(isset($data->title) && count($data->title) > 1)
+                    @if(isset($data->title) )
                         <button type="button" lay-submit lay-filter="delNews" id="del-news-btn"
                                 class="layui-btn layui-btn-danger layui-btn-fluid">删除图文
                         </button>
