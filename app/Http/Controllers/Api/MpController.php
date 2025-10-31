@@ -72,13 +72,13 @@ class MpController extends Controller
         } catch (\Psr\SimpleCache\InvalidArgumentException $exception) {
             return Response::json([
                 'code' => 400,
-                'msg' => '配置有误'
+                'msg' => '配置有误'.$exception->getMessage()
             ]);
         } catch (\Exception $exception) {
             mark_error_log($exception);
             return Response::json([
                 'code' => 400,
-                'msg' => '配置有误'
+                'msg' => '配置错误'.$exception->getMessage()
             ]);
         }
     }

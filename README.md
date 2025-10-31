@@ -61,7 +61,7 @@ DB_PASSWORD=
 - 创建默认数据:```php artisan db:seed```
 - 创建符号链接:```php artisan storage:link```
 - 打开定时器:```crontab -e```
-- 添加调度器:```* * * * * cd /path-to-your-project && php artisan schedule:run >> /dev/null 2>&1```
+- 添加调度器:```* * * * * cd /project && php artisan schedule:run >> /dev/null 2>&1```
 - 安装配置supervisor队列监听
     - centos:```yum install supervisor```
     - ubuntu:```sudo apt-get install supervisor```
@@ -80,7 +80,7 @@ DB_PASSWORD=
 - **[Laravel 6.0](https://laravel.com/)**
 - **[EasyWeChat 微信开发包](https://www.easywechat.com/)**
 - **[Layui](https://www.layui.com/)**
-- **[Layuimini](http://layuimini.99php.cn/)**
+- **[Layuimini](http://layuimini.99php.cn/)**te
 - [intervention](http://image.intervention.io/)
 - [laravel-permission](https://github.com/spatie/laravel-permission)
 - [curl](https://github.com/ixudra/Curl)
