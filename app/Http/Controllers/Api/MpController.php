@@ -60,7 +60,7 @@ class MpController extends Controller
     public function accessTokenGet($api_token)
     {
         $mp = Mp::where('api_token', $api_token)->first();
-
+        Log::info('mp msg111:' . json_encode($mp, JSON_UNESCAPED_UNICODE));
         try {
             $app = mp_app($mp->app_id, $mp->app_secret, $mp->valid_token, $mp->encodingaeskey);
             $accessToken = $app->access_token->getToken();
